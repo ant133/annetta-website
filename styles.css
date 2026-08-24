@@ -213,3 +213,22 @@ body.project-cue-lock{position:fixed;top:var(--project-cue-lock-y);left:0;width:
 @media(max-width:850px){.hero-copy{top:9%}.hero-copy .hero-story{max-width:560px}.story-beat{padding-inline:24px}.pool-diary{grid-template-columns:repeat(2,minmax(0,1fr))}.pool-diary article:nth-child(2){border-right:0}.pool-diary article:nth-child(-n+2){border-bottom:1px dashed #b9d7dd}.contact-invitation{max-width:520px}.contact{padding-top:120px}}
 @media(max-width:520px){.hero-copy{top:11%;width:88%}.hero-copy .hero-time{margin-bottom:7px;font-size:8px}.hero-copy .hero-story{margin-top:9px;font-size:12px;line-height:1.45}.hero-copy .hero-plan{margin-top:6px;font-size:12px}.story-beat{padding-block:64px}.story-beat h2{font-size:36px}.story-beat p:not(.story-time):not(.story-whisper){font-size:15px;line-height:1.65}.story-notes{align-items:flex-start;flex-direction:column}.pool-diary{grid-template-columns:1fr}.pool-diary article{min-height:0;border-right:0;border-bottom:1px dashed #b9d7dd}.pool-diary article:nth-child(3){border-bottom:1px dashed #b9d7dd}.pool-diary article:last-child{border-bottom:0}.contact{gap:22px;padding-top:120px}.contact-invitation{font-size:14px}.contact-note{max-width:280px;text-align:center;line-height:1.5}}
 @media(prefers-reduced-motion:reduce){.pool-diary{transform:none}}
+
+/* Each skill is a complete, sequential lap. The /10 is a reflection at the
+   wall, not the distance Annetta managed to swim. */
+.skill-row{grid-template-columns:minmax(175px,260px) 1fr 82px}
+.lane{height:46px;overflow:hidden;background:repeating-linear-gradient(90deg,#fffdf8 0 18px,#499cb814 19px 20px)}
+.lane .lane-wake{position:absolute;inset:0 auto 0 0;width:var(--lap-pct);height:auto;max-width:none;border-radius:0;background:linear-gradient(90deg,#81dcdd,#4cb6dc);box-shadow:inset 0 5px 10px #ffffff3b;opacity:.82}
+.lap-reverse .lane .lane-wake{inset:0 0 0 auto;background:linear-gradient(270deg,#81dcdd,#4cb6dc)}
+.lane-swimmer{position:absolute;z-index:2;left:var(--swimmer-x);top:50%;display:block;width:88px;height:auto;filter:drop-shadow(0 3px 4px #12395435);transform:translateY(-50%);transform-origin:center;transition:filter .22s ease}
+.lap-reverse .lane-swimmer{transform:translateY(-50%) scaleX(-1)}
+.skill-row:hover .lane-swimmer,.skill-row:focus-visible .lane-swimmer{filter:drop-shadow(0 4px 6px #12395455) saturate(1.08)}
+.skill-row output{display:flex;flex-direction:column;align-items:flex-start;opacity:0;transform:translateY(3px);transition:opacity .22s ease,transform .22s ease}
+.skill-row output>span{font-size:7px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+.skill-row output>strong{font:700 26px Manrope}
+.skill-row output small{font-size:11px}
+.skill-row.lap-active .lane{box-shadow:0 0 0 5px #53bed812}
+.skill-row.lap-complete output{opacity:1;transform:none}
+@media(max-width:850px){.skill-row{grid-template-columns:1fr 64px}.lane-swimmer{width:76px}.skill-row output>span{font-size:6px}}
+@media(max-width:520px){.lane{height:40px}.lane-swimmer{width:68px}.skill-row output>strong{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.lane .lane-wake,.lap-reverse .lane .lane-wake{width:100%}.lane-swimmer{transition:none}.skill-row output{opacity:1;transform:none;transition:none}}

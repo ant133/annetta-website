@@ -9,7 +9,7 @@ const projects=[
  {name:'One Call Away',full:'One Call Away',description:'A gentle reminder app for keeping up with the people you care about.',url:'https://onecallaway.annetta.dev',status:'In progress',stack:'Product · Full stack',role:'Product & engineering',year:'2026',color:'#f397aa',icon:'CALL',image:'./public/assets/projects/one-call-away.png',imageAlt:'Paper-collage illustration of a phone connecting friends and family through reminders'},
  {name:'Cozy Pomodoro',full:'Cozy Pomodoro',description:'A calm focus timer with an animal companion that works alongside you.',url:'https://pomodoro.annetta.dev',status:'In progress',stack:'Web app · Animation',role:'Creator & developer',year:'2026',color:'#73bda8',icon:'25:00',image:'./public/assets/projects/cozy-pomodoro.png',imageAlt:'Paper-collage illustration of a tomato timer and a cozy animal companion'},
  {name:'Chord Analyzer',full:'Chord Analyzer',description:'Follow synchronized chord diagrams while an MP3 or YouTube video plays.',url:'https://chord.annetta.dev',status:'Concept',stack:'Audio · AI · Web',role:'Engineering',year:'2026',color:'#838bc9',icon:'Am7',image:'./public/assets/projects/chord-analyzer.png',imageAlt:'Paper-collage illustration of a guitar, audio waveform, and chord diagrams'}];
-const skills=[['Frontend',8,'ball'],['Backend',8,'board'],['Infrastructure / DevOps',7,'ball'],['Design',7,'board'],['Product Management',7,'ball'],['AI',8,'board']];
+const skills=[['Frontend',8],['Backend',8],['Infrastructure / DevOps',7],['Design',7],['Product Management',7],['AI',8]];
 
 const projectSlots=[
  {x:25,y:36,w:8,h:15,label:'COLA'},
@@ -20,10 +20,13 @@ const projectSlots=[
 ];
 projects.forEach((project,index)=>{
  const slot=projectSlots[index];
- $('#product-grid').insertAdjacentHTML('beforeend',`<div class="product-item" role="listitem" style="--slot-x:${slot.x}%;--slot-y:${slot.y}%;--slot-w:${slot.w}%;--slot-h:${slot.h}%;--shine-delay:${index*.83}s"><button class="product" type="button" data-index="${index}" aria-label="Open ${project.full} from the ${slot.label} drink"><span class="product-gloss" aria-hidden="true"></span><span class="product-sparkles" aria-hidden="true"><i></i><i></i><i></i></span><span class="product-pick-cue" aria-hidden="true">Pick me</span><span class="visually-hidden">${project.full}</span></button></div>`);
+$('#product-grid').insertAdjacentHTML('beforeend',`<div class="product-item" role="listitem" style="--slot-x:${slot.x}%;--slot-y:${slot.y}%;--slot-w:${slot.w}%;--slot-h:${slot.h}%;--shine-delay:${index*.83}s"><button class="product" type="button" data-index="${index}" aria-label="Open ${project.full} from the ${slot.label} drink"><span class="product-gloss" aria-hidden="true"></span><span class="product-sparkles" aria-hidden="true"><i></i><i></i><i></i></span><span class="product-pick-cue" aria-hidden="true">Pick me</span><span class="visually-hidden">${project.full}</span></button></div>`);
  $('#project-list').insertAdjacentHTML('beforeend',`<div role="listitem"><button class="project-list-item" type="button" data-index="${index}" aria-label="Open ${project.full}"><span class="project-list-number">${String(index+1).padStart(2,'0')}</span><span class="project-list-name">${project.name}</span><span class="project-list-arrow" aria-hidden="true">+</span></button></div>`)
 });
-skills.forEach(([name,score,toy],i)=>{$('#skill-list').insertAdjacentHTML('beforeend',`<div class="skill-row" tabindex="0" style="--score:${score};--delay:${i*.07}s"><div class="skill-name"><span>${String(i+1).padStart(2,'0')}</span><strong>${name}</strong></div><div class="lane"><i></i><b class="lane-toy ${toy}" data-swimmer-slot="${i}" aria-hidden="true"></b></div><output>${score}<small>/10</small></output></div>`)});
+skills.forEach(([name,score],i)=>{
+ const reverse=i%2===1;
+ $('#skill-list').insertAdjacentHTML('beforeend',`<div class="skill-row${reverse?' lap-reverse':''}" tabindex="0" style="--lap-p:0;--lap-pct:0%;--swimmer-x:0px" aria-label="${name}. Full lap. Self-rating ${score} out of 10."><div class="skill-name"><span>${String(i+1).padStart(2,'0')}</span><strong>${name}</strong></div><div class="lane" aria-hidden="true"><i class="lane-wake"></i><img class="lane-swimmer" src="./public/assets/characters/swim/annetta-swim-cutout.png" alt="" width="1544" height="505" decoding="async"></div><output aria-label="Self-rating ${score} out of 10"><span>Self-rating</span><strong>${score}<small>/10</small></strong></output></div>`)
+});
 
 const projectModal=$('#project-modal'),projectSection=$('#projects'),machineWrap=$('.machine-wrap');
 let lastProduct,projectCueActive=false,projectCuePlayed=false,projectCueLockY=0,projectCueTimer,modalGrowTimer,projectSceneReady=false;
@@ -92,6 +95,8 @@ function updateScroll(){
  if(inWalkway&&Math.abs(walkP-lastAbout)>.00025){walker.src=walkFrames[Math.floor(walkP*72)%walkFrames.length];walker.classList.add('walking');clearTimeout(movingTimer);movingTimer=setTimeout(()=>{walker.classList.remove('walking');walker.src=walkFrames[0]},130)}
  lastAbout=walkP;
  const sr=$('#skills').getBoundingClientRect(),sp=clamp((vh-sr.top)/(vh+sr.height*.25));document.documentElement.style.setProperty('--skills-p',sp);
+ const skillList=$('#skill-list'),skillListRect=skillList.getBoundingClientRect(),lapSequence=reduceMotion?1:clamp((vh*.78-skillListRect.top)/(vh*.72+skillListRect.height*.3));
+ $$('.skill-row',skillList).forEach((row,i)=>{const lapP=clamp(lapSequence*skills.length-i),lane=row.querySelector('.lane'),swimmerWidth=row.querySelector('.lane-swimmer')?.offsetWidth||88,travel=Math.max(0,lane.clientWidth-swimmerWidth),swimmerX=(row.classList.contains('lap-reverse')?1-lapP:lapP)*travel;row.style.setProperty('--lap-p',lapP.toFixed(4));row.style.setProperty('--lap-pct',`${(lapP*100).toFixed(2)}%`);row.style.setProperty('--swimmer-x',`${swimmerX.toFixed(1)}px`);row.classList.toggle('lap-active',lapP>0&&lapP<.995);row.classList.toggle('lap-complete',lapP>=.995)});
  const rr=$('.return-walk').getBoundingClientRect(),rp=clamp((vh*.88-rr.top)/(vh+rr.height*.35)),corridorVisible=rr.top<vh&&rr.bottom>0;returnMotion.progress=rp;
  if(!returnMotion.sequenceActive)document.documentElement.style.setProperty('--return-p',rp);
  if(!returnMotion.sequenceActive&&rp<.12){returnMotion.played=false;returnMotion.pending=false}
