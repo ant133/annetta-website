@@ -1,0 +1,35 @@
+# Annetta
+
+> Annetta is a software developer and IT student based in Jakarta, Indonesia. She creates useful products, playful web experiments, and human-centered digital experiences, working across interfaces, backend systems, and infrastructure.
+
+Annetta's portfolio is an interactive, pool-themed single-page website. It combines storytelling, motion, 3D visuals, project showcases, and accessible HTML content to introduce her work and interests.
+
+## Main sections
+
+- [Home](https://annetta.dev/): The complete interactive portfolio.
+- [About](https://annetta.dev/#about): Background, interests, and approach to design and engineering.
+- [Projects](https://annetta.dev/#projects): Selected web products and experiments.
+- [Skills](https://annetta.dev/#skills): Frontend, backend, infrastructure/DevOps, design, product management, and AI.
+- [Contact](https://annetta.dev/#contact): Invitation to discuss projects, unusual ideas, or collaborations.
+
+## Selected projects
+
+- [Poster Buron Generator](https://posterburon.annetta.dev): Turns a photo into a shareable poster buron for posting on Threads. Created and developed by Annetta using web and image tools.
+- [One Piece Bounty Poster Generator](https://posteronepiece.annetta.dev): Creates a custom One Piece-style bounty poster directly in the browser using web and Canvas technologies.
+- [One Call Away](https://onecallaway.annetta.dev): A gentle reminder product for keeping up with people you care about.
+- [Cozy Pomodoro](https://pomodoro.annetta.dev): A calm focus timer with an animated animal companion.
+- [Chord Analyzer](https://chord.annetta.dev): A concept for following synchronized chord diagrams while an MP3 or YouTube video plays.
+
+## Contact and profiles
+
+- Email: annettaarslan@gmail.com
+- [GitHub](https://github.com/ant133)
+- [Instagram](https://www.instagram.com/aintrsln/)
+- [Threads](https://www.threads.com/@aintrsln)
+
+## Site information
+
+- Canonical URL: https://annetta.dev/
+- Language: English
+- Site type: Personal portfolio
+- Technology: Static HTML, CSS, JavaScript, and Three.js

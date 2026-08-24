@@ -1,0 +1,10 @@
+# Annetta
+
+> Annetta is a software developer and IT student in Jakarta, Indonesia. She builds useful products, playful web experiments, and human-centered digital experiences across frontend, backend, infrastructure, design, product management, and AI.
+
+This is Annetta's interactive portfolio. It presents her background, selected projects, technical and product skills, and contact details through a playful pool-themed experience.
+
+Canonical website: https://annetta.dev/
+Detailed AI-readable overview: https://annetta.dev/llms.txt
+Contact: mailto:annettaarslan@gmail.com
+GitHub: https://github.com/ant133
