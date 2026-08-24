@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d7eef0" />
+    <title>FIORA — A little pond to play with</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="scene" aria-label="An interactive 3D pond with colorful floating letters spelling FIORA">
+      <div class="grain" aria-hidden="true"></div>
+      <header class="masthead">
+        <a class="brand" href="#" aria-label="Fiora home">
+          <span class="brand-mark">F</span>
+          <span>FIORA</span>
+        </a>
+        <p class="sound-status"><span class="sound-dot"></span> Pond mode</p>
+      </header>
+
+      <section class="intro" aria-hidden="true">
+        <p class="eyebrow">A tiny place to drift</p>
+        <h1>Come on in,<br />the water's lovely.</h1>
+      </section>
+
+      <div id="canvas-wrap"></div>
+
+      <div class="hint" aria-hidden="true">
+        <span class="mouse-icon"><i></i></span>
+        <span>Drag the letters<br />Tap the water</span>
+      </div>
+
+      <div class="loading" id="loading" role="status">
+        <div class="loading-word">FIORA</div>
+        <div class="loading-line"><i></i></div>
+      </div>
+
+      <noscript>This interactive pond needs JavaScript enabled.</noscript>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
