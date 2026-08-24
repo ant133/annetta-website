@@ -144,3 +144,63 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.hero-
 .contact-swimmer{position:absolute;z-index:1;left:-4vw;bottom:-4px;width:min(52vw,920px);height:auto;pointer-events:none;user-select:none;filter:drop-shadow(0 12px 12px #287bb026)}
 @media(max-width:850px){.contact{padding-bottom:clamp(165px,27vw,230px)}.contact-swimmer{left:-10vw;width:76vw;max-width:none}}
 @media(max-width:520px){.contact{padding-bottom:clamp(130px,36vw,175px)}.contact-swimmer{left:-18vw;bottom:0;width:112vw}}
+
+/* Cozy project cues live directly on the vending-machine artwork. */
+body.project-cue-lock{position:fixed;top:var(--project-cue-lock-y);left:0;width:100%;overflow:hidden}
+.product-grid{z-index:4;inset:0;left:0;top:0;width:100%;height:100%;display:block;padding:0;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.projects.project-ready .product-grid{opacity:1}
+.project-list-panel{position:absolute;z-index:6;left:67%;right:4%;top:42%;max-width:520px;padding:10px;border:1px solid #ffffff70;border-radius:24px;background:linear-gradient(145deg,#fffaf0d9,#fffaf0ad);box-shadow:0 14px 45px #071d2d35,inset 0 1px 0 #fff;backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15);color:var(--ink);transition:opacity .7s .18s ease,transform .7s .18s cubic-bezier(.2,.8,.2,1)}
+.projects:not(.scene-entered) .project-list-panel{opacity:0;transform:translateX(32px)}
+.project-list-label{display:flex;justify-content:space-between;align-items:center;padding:5px 10px 9px;font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#315e75}.project-list-label span:last-child{opacity:.58}
+.project-list{display:grid;gap:3px}.project-list-item{width:100%;min-height:42px;padding:8px 10px;display:grid;grid-template-columns:31px minmax(0,1fr) 25px;align-items:center;gap:8px;border:0;border-radius:15px;background:transparent;color:var(--ink);text-align:left;cursor:pointer;transition:background .22s ease,color .22s ease,transform .22s ease,box-shadow .22s ease}.project-list-item:hover,.project-list-item:focus-visible{background:var(--ink);color:#fff;box-shadow:0 7px 20px #1239542b;outline:none;transform:translateX(3px)}.project-list-item:active{transform:translateX(3px) scale(.985)}
+.project-list-number{font-size:9px;font-weight:800;letter-spacing:.12em;opacity:.58}.project-list-name{overflow:hidden;font-size:13px;font-weight:750;white-space:nowrap;text-overflow:ellipsis}.project-list-arrow{display:grid;width:25px;height:25px;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:15px;line-height:1;opacity:.68;transition:transform .22s ease}.project-list-item:hover .project-list-arrow,.project-list-item:focus-visible .project-list-arrow{transform:rotate(90deg);opacity:1}
+.product-item{position:absolute;left:var(--slot-x);top:var(--slot-y);width:var(--slot-w);height:var(--slot-h);display:block;min-width:0;transform:translate(-50%,-50%);pointer-events:auto}
+.product{position:relative;width:100%;height:100%;overflow:visible;border:0;border-radius:43% 43% 22% 22%;background:transparent;box-shadow:none;cursor:pointer;transition:transform .24s ease,filter .24s ease}
+.product-gloss{position:absolute;inset:0;overflow:hidden;border:1px solid #eaffff45;border-radius:inherit;pointer-events:none}
+.product-gloss:before{content:'';position:absolute;inset:-18% auto -18% -85%;width:54%;background:linear-gradient(105deg,transparent 4%,#ffffff17 28%,#fff 49%,#ffffff28 67%,transparent 92%);filter:blur(.6px);transform:skewX(-12deg);animation:productGloss 4.8s ease-in-out var(--shine-delay) infinite}
+.product-sparkles{position:absolute;inset:-8%;pointer-events:none}.product-sparkles i{position:absolute;width:5px;height:5px;opacity:0;transform:rotate(45deg);animation:productSparkle 4.8s ease-in-out calc(var(--shine-delay) + .4s) infinite}
+.product-sparkles i:before,.product-sparkles i:after{content:'';position:absolute;left:50%;top:50%;border-radius:50%;background:#fffde0;box-shadow:0 0 5px #d9fbff}.product-sparkles i:before{width:2px;height:10px;transform:translate(-50%,-50%)}.product-sparkles i:after{width:10px;height:2px;transform:translate(-50%,-50%)}
+.product-sparkles i:nth-child(1){left:-2%;top:18%}.product-sparkles i:nth-child(2){right:-4%;top:43%;animation-delay:calc(var(--shine-delay) + .65s)}.product-sparkles i:nth-child(3){left:18%;bottom:3%;animation-delay:calc(var(--shine-delay) + .9s)}
+.product-pick-cue{position:absolute;z-index:3;left:50%;bottom:-19px;padding:3px 7px;border:1px solid #8dcde0a3;border-radius:999px;background:#fffaf0e6;box-shadow:0 3px 7px #0c355059;color:#17658f;font:700 clamp(5px,.52vw,8px)/1.1 'DM Sans',sans-serif;letter-spacing:.04em;white-space:nowrap;opacity:.82;transform:translateX(-50%) rotate(-2deg);transition:opacity .2s ease,transform .2s ease}
+.product-item:nth-child(even) .product-pick-cue{transform:translateX(-50%) rotate(2deg)}
+.product:hover,.product:focus-visible{border-color:transparent;background:#ffffff0f;box-shadow:none;filter:brightness(1.18) drop-shadow(0 0 7px #c5f5ff);outline:none;transform:scale(1.055)}
+.product:hover .product-gloss,.product:focus-visible .product-gloss{backdrop-filter:brightness(1.16);-webkit-backdrop-filter:brightness(1.16)}
+.product:hover .product-pick-cue,.product:focus-visible .product-pick-cue{opacity:1;transform:translateX(-50%) translateY(-2px) rotate(0)}
+.product:focus-visible .product-gloss{outline:2px solid white;outline-offset:2px}
+.projects.project-cue-active .product[data-index="0"]{z-index:5;animation:colaBottlePulse .2s steps(2,end) 4}
+.projects.project-cue-active .product[data-index="0"] .product-gloss{background:#eaffff38;box-shadow:0 0 14px #e9fcff,0 0 28px #72d4ed;animation:colaBottleBlink .2s steps(2,end) 4}
+.projects.project-cue-active .product[data-index="0"] .product-pick-cue{opacity:1;transform:translateX(-50%) translateY(-3px) rotate(-2deg)}
+.projects.project-cue-active .project-list-item[data-index="0"]{background:var(--ink);color:#fff;animation:projectListPulse .2s steps(2,end) 4}
+.project-modal{border:2px solid #fffdf5;background:linear-gradient(145deg,#fffdf5,#fff7e8);box-shadow:0 22px 70px #08253d73,10px 12px 0 #75bfd033;transform-origin:var(--modal-origin-x,50%) var(--modal-origin-y,50%)}
+.project-modal:after{content:'';position:absolute;z-index:3;right:82px;top:8px;width:72px;height:18px;background:#f4d875a8;box-shadow:0 2px 4px #5a48251c;transform:rotate(3deg);pointer-events:none}
+.project-modal::backdrop{background:#153c5673;backdrop-filter:blur(5px) saturate(.82)}
+.project-modal.modal-preparing{opacity:0}
+.project-modal.modal-origin-grow{animation:cozyModalGrow .46s cubic-bezier(.2,.82,.22,1) both}
+.project-modal.modal-origin-grow.modal-quick-grow{animation-duration:.3s}
+.project-modal .modal-close{background:#fffdf5;border:1px solid #bddce1;box-shadow:0 4px 12px #1239541a;color:#245972}
+.project-modal .modal-close:hover,.project-modal .modal-close:focus-visible{background:#e5f7f8;outline:2px solid white;outline-offset:2px}
+.project-modal .browser-frame{box-shadow:0 10px 28px #1a60731f}
+.project-modal .visit-project{background:#245f7a}
+@keyframes productGloss{0%,66%{transform:translateX(0) skewX(-12deg);opacity:0}70%{opacity:.86}84%{transform:translateX(355%) skewX(-12deg);opacity:.7}88%,100%{transform:translateX(355%) skewX(-12deg);opacity:0}}
+@keyframes productSparkle{0%,70%,88%,100%{opacity:0;transform:rotate(45deg) scale(.35)}76%{opacity:1;transform:rotate(45deg) scale(1)}82%{opacity:.36;transform:rotate(45deg) scale(.68)}}
+@keyframes colaBottlePulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.65) drop-shadow(0 0 10px #eafcff);transform:scale(1.045)}}
+@keyframes colaBottleBlink{0%,100%{backdrop-filter:brightness(1);-webkit-backdrop-filter:brightness(1)}50%{backdrop-filter:brightness(1.72) saturate(1.16);-webkit-backdrop-filter:brightness(1.72) saturate(1.16)}}
+@keyframes projectListPulse{0%,100%{box-shadow:0 7px 20px #1239542b}50%{box-shadow:0 0 0 3px #fff,0 0 24px #dffaff;transform:translateX(3px)}}
+@keyframes cozyModalGrow{0%{opacity:0;transform:scale(.045);border-radius:46%}72%{opacity:1;transform:scale(1.025);border-radius:18px}100%{opacity:1;transform:none;border-radius:20px}}
+@media(max-width:850px){.projects{min-height:1040px}.project-heading{top:6%}.project-list-panel{left:7%;right:7%;top:25%;max-width:none;padding:8px 9px}.project-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.project-list-item{min-height:39px}.machine-wrap{height:58%}.product-pick-cue{bottom:-15px;padding:2px 5px;font-size:6px}.product-sparkles i:before{height:8px}.product-sparkles i:after{width:8px}}
+@media(max-width:520px){.projects{min-height:980px}.project-heading{top:5%}.project-list-panel{left:4%;right:4%;top:24%;border-radius:20px}.project-list-label{padding-block:3px 7px}.project-list-item{grid-template-columns:25px minmax(0,1fr) 22px;gap:5px;min-height:38px;padding:7px 8px}.project-list-name{font-size:11px}.project-list-arrow{width:22px;height:22px}.machine-wrap{height:56%}.product-pick-cue{bottom:-12px;padding:2px 4px;font-size:5px}.project-modal:after{right:65px;width:52px}}
+@media(prefers-reduced-motion:reduce){.product-grid,.project-list-panel,.project-list-item,.project-list-arrow{transition:none}.product-gloss:before,.product-sparkles i,.projects.project-cue-active .product[data-index="0"],.projects.project-cue-active .product[data-index="0"] .product-gloss,.projects.project-cue-active .project-list-item[data-index="0"],.project-modal.modal-origin-grow{animation:none}.product-gloss:before{display:none}.product-sparkles i{opacity:.65}.projects.project-cue-active .product[data-index="0"] .product-gloss{background:#f4ffff36;box-shadow:0 0 12px #dffaff;backdrop-filter:brightness(1.16);-webkit-backdrop-filter:brightness(1.16)}}
+
+/* Illustrated closing-time pool environment. The art carries the atmosphere;
+   the UI remains crisp and the existing swimmer owns the foreground. */
+.contact{
+  isolation:isolate;
+  background:#f8efd9 url('./public/assets/contact/pool-closing-bg.jpg') center bottom/cover no-repeat;
+}
+.contact .sunset{
+  z-index:0;
+  background:linear-gradient(180deg,#fffaf00a 0 68%,#1239540d 100%);
+}
+.contact.paper-world:after{display:none}
+@media(max-width:850px){.contact{background-position:54% bottom}}
+@media(max-width:520px){.contact{background-position:58% bottom}}
