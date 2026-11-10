@@ -1,0 +1,32 @@
+/* Static pages beside the game (about, privacy). annetta.dev look: cream, ink, hard offset shadow, square corners. */
+:root{--ink:#123954;--blue:#177dc5;--cream:#fffaf0;--hl:#fff4b3;--hair:#12395421;--head:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream) radial-gradient(circle at 18% 0,#fff4b34d,transparent 40%);color:var(--ink);font:16px/1.6 var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--blue)}
+.top{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--hair)}
+.top a.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700}
+.mark{display:grid;place-items:center;width:30px;height:30px;border:2px solid var(--ink);font:800 15px var(--head);letter-spacing:-.06em;background:var(--hl);transform:rotate(-3deg)}
+.mark i{font-style:normal;color:var(--blue);font-size:11px;margin-left:1px}
+.top nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+main{max-width:760px;margin:32px auto 48px;padding:0 16px}
+article{background:#fffaf0f0;border:1px solid var(--hair);box-shadow:15px 18px 0 #1264992e;padding:28px 28px 32px}
+.tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#257bad;margin:0 0 8px}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.055em;line-height:1.1;margin:0}
+h1{font-size:clamp(30px,6vw,44px);margin-bottom:6px}
+h1 em,.it{font-family:Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0}
+h2{font-size:22px;margin:30px 0 8px}
+h3{font-size:16px;margin:18px 0 4px;letter-spacing:-.03em}
+p,li{margin:0 0 10px}
+ul{padding-left:20px;margin:0 0 10px}
+.lede{font-size:18px;margin-bottom:18px}
+table{border-collapse:collapse;width:100%;margin:8px 0 14px;font-size:14px}
+th,td{border:1px solid var(--hair);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--hl)}
+kbd{font:600 12px ui-monospace,Consolas,monospace;border:1px solid var(--ink);padding:0 5px;background:var(--cream)}
+.cta{display:inline-block;margin:6px 0 4px;padding:10px 18px;border:1px solid var(--ink);background:var(--blue);color:#fff;font-weight:700;text-decoration:none;box-shadow:4px 4px 0 var(--ink)}
+.cta:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.meta{font-size:13px;opacity:.75}
+footer{max-width:760px;margin:0 auto 40px;padding:0 16px;font-size:13px;text-align:center}
+footer p{margin:4px 0}
+footer .it{opacity:.75}
+@media(max-width:520px){article{padding:20px 16px 24px;box-shadow:8px 10px 0 #1264992e}.top nav{gap:10px;font-size:13px}}
