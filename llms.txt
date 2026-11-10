@@ -17,7 +17,7 @@ Annetta's portfolio is an interactive, pool-themed single-page website. It combi
 - [Poster Buron Generator](https://posterburon.annetta.dev): Turns a photo into a shareable poster buron for posting on Threads. Created and developed by Annetta using web and image tools.
 - [One Piece Bounty Poster Generator](https://posteronepiece.annetta.dev): Creates a custom One Piece-style bounty poster directly in the browser using web and Canvas technologies.
 - [One Call Away](https://onecallaway.annetta.dev): A gentle reminder product for keeping up with people you care about.
-- [Cozy Pomodoro](https://pomodoro.annetta.dev): A calm focus timer with an animated animal companion.
+- [Littleworld Jakarta Padel Cup](https://playpadel.annetta.dev): A free 3D pixel-art doubles padel game that plays in the browser. Make a player, team up with Annetta, and coach your pair from the coach box. Built with Three.js.
 - [Chord Analyzer](https://chord.annetta.dev): A concept for following synchronized chord diagrams while an MP3 or YouTube video plays.
 
 ## Contact and profiles
